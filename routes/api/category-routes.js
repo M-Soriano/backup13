@@ -7,15 +7,15 @@ router.get('/', (req, res) => {
   // find all categories
   // be sure to include its associated Products
   Category.findAll({
-    attributes: ["id", "categoty_name"],
+    attributes: ['id', 'category_name'],
     include: {
       model: Product,
       attributes:  [
-        "id",
-        "product_name",
-        "price",
-        "stock",
-        "category_id"       
+        'id',
+        'product_name',
+        'price',
+        'stock',
+        'category_id'      
     ] }  
   })
   .then(CategoryData => res.json(CategoryData))
@@ -36,11 +36,11 @@ router.get('/:id', (req, res) => {
     include: {
       model: Product,
       attributes:  [
-        "id",
-        "product_name",
-        "price",
-        "stock",
-        "category_id"       
+        'id',
+        'product_name',
+        'price',
+        'stock',
+        'category_id'       
     ]  }
   }  )
   .then(CategoryData => {
@@ -82,7 +82,7 @@ router.put('/:id', (req, res) => {
   } )
   .then(CategoryData => {
     if (!CategoryData) {
-      res.status(404).json({ message: " No caterory found with that ID."});
+      res.status(404).json({ message:  'No caterory found with that ID.'});
       return;
     }
     res.json(CategoryData);
@@ -102,7 +102,7 @@ router.delete('/:id', (req, res) => {
   })
   .then(CategoryData => {
     if(!CategoryData) {
-      res.status(404).json({message: "No caterory found with this ID"});
+      res.status(404).json({message: 'No caterory found with this ID'});
       return;
     }
     res.json(CategoryData);
